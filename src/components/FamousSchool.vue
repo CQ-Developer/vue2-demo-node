@@ -1,0 +1,24 @@
+<template>
+    <div class="sch">
+        <p>学校名称：{{ name }}</p>
+        <p>学校地址：{{ address }}</p>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'FamousSchool',
+    data() {
+        return {
+            name: '清华大学',
+            address: '北京市'
+        }
+    }
+}
+</script>
+
+<style>
+.sch {
+    background-color: skyblue;
+}
+</style>
