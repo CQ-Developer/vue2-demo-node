@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p>学生姓名：{{ name }}</p>
-        <p>学生年龄：{{ age }}</p>
+        <p>学生姓名：<span v-convert-name="name"></span></p>
+        <p>学生年龄：{{ age | twoTimes }}</p>
     </div>
 </template>
 
