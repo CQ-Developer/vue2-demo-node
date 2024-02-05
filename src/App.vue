@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <FamousSchool></FamousSchool>
+    <SchoolInfo></SchoolInfo>
 
     <!-- 数字需要使用v-bind通过表达式传递 -->
     <StudentInfo name="张三" :age="17" gender="女"></StudentInfo>
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import FamousSchool from './components/FamousSchool.vue'
+import SchoolInfo from './components/SchoolInfo.vue'
 import StudentInfo from './components/StudentInfo.vue'
 export default {
   name: 'App',
   components: {
-    FamousSchool,
+    SchoolInfo,
     StudentInfo
   }
 }
