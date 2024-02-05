@@ -4,6 +4,13 @@ import Vue from 'vue'
 // 引入自定义的App.vue
 import App from './App.vue'
 
+// 引入需要全局混和的对象
+import { m2 } from './mixin.js'
+
+/**
+ * 使用全局混合
+ */
+Vue.mixin(m2)
 
 // 关闭生产警告
 Vue.config.productionTip = false

@@ -1,11 +1,12 @@
 <template>
-    <div class="sch">
-        <p>学校名称：{{ name }}</p>
+    <div>
+        <p @click="alertName">学校名称：{{ name }}</p>
         <p>学校地址：{{ address }}</p>
     </div>
 </template>
 
 <script>
+import { m1 } from '../mixin.js'
 export default {
     name: 'SchoolInfo',
     data() {
@@ -13,12 +14,10 @@ export default {
             name: '清华大学',
             address: '北京市'
         }
+    },
+    mixins: [m1],
+    mounted() {
+        console.log('from school...')
     }
 }
 </script>
-
-<style>
-.sch {
-    background-color: skyblue;
-}
-</style>
