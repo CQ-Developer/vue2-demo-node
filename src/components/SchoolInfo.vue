@@ -1,6 +1,6 @@
 <template>
-    <div @click="hello">
-        <p>学校名称：<span v-convert-name="name"></span></p>
+    <div>
+        <p>学校名称：{{ name }}</p>
         <p>学校地址：{{ address }}</p>
     </div>
 </template>
