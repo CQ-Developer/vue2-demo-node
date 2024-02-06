@@ -7,11 +7,9 @@
     -->
     <SchoolInfo :getSchoolName="getSchoolName"></SchoolInfo>
     <!--
-      给VueComponent组件实例绑定事件
-      当事件被触发后会调用指定的方法
-      通过这种方式也能达到向父组件传递数据的目的
+      暴露引用
     -->
-    <StudentInfo @sendStudentName="getStudentName"></StudentInfo>
+    <StudentInfo ref="student"></StudentInfo>
   </div>
 </template>
 
@@ -36,6 +34,13 @@ export default {
   components: {
     SchoolInfo,
     StudentInfo
+  },
+  /**
+   * 通过生命周期钩子和$refs为组件实例对象绑定事件
+   * 这种方式更加灵活
+   */
+  mounted() {
+    this.$refs.student.$on('sendStudentName', this.getStudentName)
   }
 }
 </script>
