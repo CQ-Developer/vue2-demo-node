@@ -1,21 +1,19 @@
 <template>
   <div>
-    <AnimationDemo></AnimationDemo>
-    <TransitionDemo></TransitionDemo>
-    <AnimateCssDemo></AnimateCssDemo>
   </div>
 </template>
 
 <script>
-import AnimationDemo from './components/AnimationDemo.vue'
-import TransitionDemo from './components/TransitionDemo.vue'
-import AnimateCssDemo from './components/AnimateCssDemo.vue'
+// npm install axios
+import axios from 'axios'
 export default {
   name: 'App',
-  components: {
-    AnimationDemo,
-    TransitionDemo,
-    AnimateCssDemo
+  methods: {
+    testAxios() {
+      axios.get('http://localhost:8080/api/studfent')
+           .then(resp => console.log(resp))
+           .catch(err => console.error('错误', err))
+    }
   }
 }
 </script>
