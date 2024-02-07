@@ -11,9 +11,9 @@
             name
             可以给Transition添加名称
         -->
-        <Transition appear name="hello">
+        <transition appear name="hello">
             <h1 v-show="isShow">你好啊</h1>
-        </Transition>
+        </transition>
     </div>
 </template>
 

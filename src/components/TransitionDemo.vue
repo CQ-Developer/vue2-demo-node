@@ -1,9 +1,18 @@
 <template>
     <div>
         <button @click="isShow = !isShow">显示/隐藏</button>
-        <Transition appear name="hello">
-            <h1 v-show="isShow">你好啊</h1>
-        </Transition>
+        <!--
+            transition-group
+            包裹多个需要动画或过渡效果的元素
+
+            key
+            被transition-group包裹的需要动画的元素必须有key属性
+            这点在列表中常用
+        -->
+        <transition-group appear name="hello">
+            <h1 v-show="isShow" key="1">你好南京</h1>
+            <h1 v-show="!isShow" key="2">你好北京</h1>
+        </transition-group>
     </div>
 </template>
 
