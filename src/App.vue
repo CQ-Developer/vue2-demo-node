@@ -1,17 +1,18 @@
 <template>
   <div>
-    <TodoList></TodoList>
+    <AnimationDemo></AnimationDemo>
+    <TransitionDemo></TransitionDemo>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue'
+import AnimationDemo from './components/AnimationDemo.vue'
+import TransitionDemo from './components/TransitionDemo.vue'
 export default {
   name: 'App',
   components: {
-    TodoList
+    AnimationDemo,
+    TransitionDemo
   }
 }
 </script>
-
-<style></style>
