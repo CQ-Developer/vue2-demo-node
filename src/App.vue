@@ -1,31 +1,33 @@
 <template>
   <div class="app">
     <!--
-      通过在标签上添加slot属性
-      指定向哪个插槽插入结构
+      通过v-slot:name="abc"
+      获取指定name插槽的数据
+      这里没有给插槽命名，所以使用默认名default，也可以不写
     -->
     <CategoryCard title="游戏">
-      <ul slot="a">
-        <li v-for="(game, index) in games" :key="index">{{ game }}</li>
-      </ul>
-      <img slot="b" src="./assets/logo.png">
+      <template v-slot:default="slotProps">
+        <p>{{ slotProps.game.name }}</p>
+        <p>{{ slotProps.game.state }}</p>
+      </template>
     </CategoryCard>
-
     <!--
-      使用<template v-slot:a>这种方式
-      指定向哪个插槽插入结构
-      这种方式的好处是<template>标签不会参与页面的渲染
-      适合包含了复杂结构的插槽
+      解构赋值
+      插槽数据支持解构赋值
     -->
     <CategoryCard title="游戏">
-      <template v-slot:a>
-        <ol>
-          <li v-for="(game, index) in games" :key="index">{{ game }}</li>
-        </ol>
+      <template v-slot:default="{ game }">
+        <p>{{ game.name }}</p>
+        <p>{{ game.state }}</p>
       </template>
-      <template v-slot:b>
-        <img slot="b" src="./assets/logo.png">
-      </template>
+    </CategoryCard>
+    <!--
+      简化
+      直接将v-slot写在组件标签上并省略插槽名称
+    -->
+    <CategoryCard title="游戏" v-slot="{ game }">
+        <p>{{ game.name }}</p>
+        <p>{{ game.state }}</p>
     </CategoryCard>
   </div>
 </template>
@@ -34,11 +36,6 @@
 import CategoryCard from './components/CategoryCard.vue'
 export default {
   name: 'App',
-  data() {
-    return {
-      games: ['魔兽世界', 'DOATA2', '王者荣耀']
-    }
-  },
   components: {
     CategoryCard
   }
