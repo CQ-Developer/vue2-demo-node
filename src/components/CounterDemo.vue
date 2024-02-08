@@ -16,6 +16,8 @@
 </template>
 
 <script>
+// 通过mapState辅助函数简化计算属性
+import { mapState } from 'vuex'
 export default {
     name: 'CounterDemo',
     data() {
@@ -37,17 +39,8 @@ export default {
             this.$store.dispatch('plusDelayed', this.n)
         }
     },
-    // 通过计算属性简化插值语法
     computed: {
-        sum() {
-            return this.$store.state.sum
-        },
-        school() {
-            return this.$store.state.school
-        },
-        subject() {
-            return this.$store.state.subject
-        },
+        ...mapState(['sum', 'school', 'subject']),
         timesTen() {
             return this.$store.getters.timesTen
         }
