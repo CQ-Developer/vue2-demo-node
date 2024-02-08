@@ -11,7 +11,35 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    actions: {},
-    state: {},
-    mutations: {}
+    actions: {
+        // 接收组件转发的数据
+        plus(context, payload) {
+            context.commit('plusValue', payload)
+        },
+        // 技巧：对context对象使用解构赋值
+        minus({ commit }, payload) {
+            commit('minusValue', payload)
+        },
+        plusWhenOdd({ commit, state }, payload) {
+            if (state.sum % 2) {
+                commit('plusValue', payload)
+            }
+        },
+        plusDelayed({ commit }, payload) {
+            setTimeout(() => commit('plusValue', payload), 1000)
+        }
+    },
+    state: {
+        // 将需要处理的状态提升到vuex中
+        sum: 0
+    },
+    mutations: {
+        // 执行真正的状态修改
+        plusValue(state, value) {
+            state.sum += value
+        },
+        minusValue(state, value) {
+            state.sum -= value
+        }
+    }
 })
