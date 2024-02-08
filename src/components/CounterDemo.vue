@@ -40,7 +40,7 @@ export default {
     },
     computed: {
         ...mapState(['sum', 'school', 'subject']),
-        ...mapGetters(['timesTen'])
+        ...mapGetters({ timesTen: 'timesTen' })
     }
 }
 </script>
