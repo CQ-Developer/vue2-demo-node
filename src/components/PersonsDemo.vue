@@ -12,7 +12,6 @@
 
 <script>
 import { nanoid } from 'nanoid'
-import { mapState, mapMutations } from 'vuex'
 export default {
     name: 'PersonDemo',
     data() {
@@ -21,17 +20,18 @@ export default {
         }
     },
     computed: {
-        ...mapState(['persons', 'sum'])
+        persons() {
+            return this.$store.state.persons
+        },
+        sum() {
+            return this.$store.state.sum
+        }
     },
     methods: {
         createPerson() {
-            this.addPerson({ id: nanoid(), name: this.name })
+            this.$store.commit('addPerson', { id: nanoid(), name: this.name })
             this.name = ''
-        },
-        ...mapMutations(['addPerson'])
-    },
-    beforeCreate() {
-        console.log(nanoid())
+        }
     }
 }
 </script>
