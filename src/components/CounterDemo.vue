@@ -16,8 +16,7 @@
 </template>
 
 <script>
-// 通过mapState辅助函数简化计算属性
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
     name: 'CounterDemo',
     data() {
@@ -41,9 +40,7 @@ export default {
     },
     computed: {
         ...mapState(['sum', 'school', 'subject']),
-        timesTen() {
-            return this.$store.getters.timesTen
-        }
+        ...mapGetters(['timesTen'])
     }
 }
 </script>
