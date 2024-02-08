@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- 读取vuex中的状态 -->
-        <h1>当前求和为：{{ $store.state.sum }}</h1>
-        <p>结果放大十倍：{{ $store.getters.timesTen }}</p>
+        <h1>当前求和为：{{ sum }}</h1>
+        <p>结果放大十倍：{{ timesTen }}</p>
+        <p>我在{{ school }}学习{{ subject }}</p>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -25,7 +25,6 @@ export default {
     },
     methods: {
         plusN() {
-            // 将需要执行的操作转发给vuex的actions
             this.$store.dispatch('plus', this.n)
         },
         minusN() {
@@ -36,6 +35,21 @@ export default {
         },
         plusNDelayed() {
             this.$store.dispatch('plusDelayed', this.n)
+        }
+    },
+    // 通过计算属性简化插值语法
+    computed: {
+        sum() {
+            return this.$store.state.sum
+        },
+        school() {
+            return this.$store.state.school
+        },
+        subject() {
+            return this.$store.state.subject
+        },
+        timesTen() {
+            return this.$store.getters.timesTen
         }
     }
 }

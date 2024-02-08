@@ -30,7 +30,9 @@ export default new Vuex.Store({
     },
     state: {
         // 将需要处理的状态提升到vuex中
-        sum: 0
+        sum: 0,
+        school: '清华',
+        subject: '计算机'
     },
     mutations: {
         // 执行真正的状态修改
