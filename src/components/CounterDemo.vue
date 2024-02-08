@@ -2,6 +2,7 @@
     <div>
         <!-- 读取vuex中的状态 -->
         <h1>当前求和为：{{ $store.state.sum }}</h1>
+        <p>结果放大十倍：{{ $store.getters.timesTen }}</p>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>

@@ -25,9 +25,8 @@ export default new Vuex.Store({
                 commit('plusValue', payload)
             }
         },
-        plusDelayed({ commit }, payload) {
-            setTimeout(() => commit('plusValue', payload), 1000)
-        }
+        // 可以使用箭头函数
+        plusDelayed: ({ commit }, payload) => setTimeout(() => commit('plusValue', payload), 1000)
     },
     state: {
         // 将需要处理的状态提升到vuex中
@@ -41,5 +40,9 @@ export default new Vuex.Store({
         minusValue(state, value) {
             state.sum -= value
         }
+    },
+    // 类似于计算属性
+    getters: {
+        timesTen: state => state.sum * 10
     }
 })
