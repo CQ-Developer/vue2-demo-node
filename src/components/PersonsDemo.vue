@@ -46,9 +46,6 @@ export default {
             this.$store.dispatch('modulePerson/addNamedWang', { id: nanoid(), name: this.name })
             this.name = ''
         }
-    },
-    mounted() {
-        console.log(this.$store)
     }
 }
 </script>

@@ -36,9 +36,6 @@ export default {
         ...mapState('moduleCounter', ['sum', 'school', 'subject']),
         ...mapState('modulePerson', ['persons']),
         ...mapGetters('moduleCounter', { timesTen: 'timesTen' })
-    },
-    mounted() {
-        console.log(this.$store)
     }
 }
 </script>
