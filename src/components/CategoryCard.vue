@@ -1,8 +1,9 @@
 <template>
     <div>
         <h2>{{ title }}分组</h2>
-        <!-- 默认插槽 -->
-        <slot></slot>
+        <!-- 具名插槽 -->
+        <slot name="a"></slot>
+        <slot name="b"></slot>
     </div>
 </template>
 
@@ -18,7 +19,6 @@ export default {
 <style scoped>
 div {
     width: 300px;
-    height: 400px;
     background-color: blue;
     text-align: center;
     padding-top: 30px;
