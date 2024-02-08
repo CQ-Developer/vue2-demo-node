@@ -3,6 +3,7 @@
         <h1>当前求和为：{{ sum }}</h1>
         <p>结果放大十倍：{{ timesTen }}</p>
         <p>我在{{ school }}学习{{ subject }}</p>
+        <p style="color: red;">PersonsDemo组件包含人数：{{ persons.length }}</p>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -29,7 +30,7 @@ export default {
         ...mapActions(['plusWhenOdd', 'plusDelayed'])
     },
     computed: {
-        ...mapState(['sum', 'school', 'subject']),
+        ...mapState(['sum', 'school', 'subject', 'persons']),
         ...mapGetters({ timesTen: 'timesTen' })
     }
 }
