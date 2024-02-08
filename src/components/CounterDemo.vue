@@ -26,10 +26,10 @@ export default {
     },
     methods: {
         plusN() {
-            this.$store.dispatch('plus', this.n)
+            this.$store.commit('plusValue', this.n)
         },
         minusN() {
-            this.$store.dispatch('minus', this.n)
+            this.$store.commit('minusValue', this.n)
         },
         plusNWhenOdd() {
             this.$store.dispatch('plusWhenOdd', this.n)
