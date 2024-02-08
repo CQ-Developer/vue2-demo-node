@@ -8,15 +8,15 @@
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <button @click="plusN">+</button>
-        <button @click="minusN">-</button>
-        <button @click="plusNWhenOdd">当前求和为奇数+</button>
-        <button @click="plusNDelayed">延迟+</button>
+        <button @click="plusN(n)">+</button>
+        <button @click="minusN(n)">-</button>
+        <button @click="plusWhenOdd(n)">当前求和为奇数+</button>
+        <button @click="plusDelayed(n)">延迟+</button>
     </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
     name: 'CounterDemo',
     data() {
@@ -25,18 +25,8 @@ export default {
         }
     },
     methods: {
-        plusN() {
-            this.$store.commit('plusValue', this.n)
-        },
-        minusN() {
-            this.$store.commit('minusValue', this.n)
-        },
-        plusNWhenOdd() {
-            this.$store.dispatch('plusWhenOdd', this.n)
-        },
-        plusNDelayed() {
-            this.$store.dispatch('plusDelayed', this.n)
-        }
+        ...mapMutations({ plusN: 'plusValue', minusN: 'minusValue' }),
+        ...mapActions(['plusWhenOdd', 'plusDelayed'])
     },
     computed: {
         ...mapState(['sum', 'school', 'subject']),
