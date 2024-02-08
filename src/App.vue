@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <!--
+      通过插槽可以将一段HTML结构传递给子组件
+    -->
+    <CategoryCard title="游戏">
+      <ul>
+        <li v-for="(game, index) in games" :key="index">{{ game }}</li>
+      </ul>
+    </CategoryCard>
+    <CategoryCard title="游戏">
+      <ol>
+        <li v-for="(game, index) in games" :key="index">{{ game }}</li>
+      </ol>
+    </CategoryCard>
+    <CategoryCard title="游戏">
+      <h4 v-for="(game, index) in games" :key="index">{{ game }}</h4>
+    </CategoryCard>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CategoryCard from './components/CategoryCard.vue'
 export default {
   name: 'App',
+  data() {
+    return {
+      games: ['魔兽世界', 'DOATA2', '王者荣耀']
+    }
+  },
   components: {
-    HelloWorld
+    CategoryCard
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.app {
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>
