@@ -17,6 +17,9 @@
 </template>
 
 <script>
+/**
+ * 使用map辅助函数访问命名空间的数据和方法非常方便
+ */
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
     name: 'CounterDemo',
@@ -26,12 +29,16 @@ export default {
         }
     },
     methods: {
-        ...mapMutations({ plusN: 'plusValue', minusN: 'minusValue' }),
-        ...mapActions(['plusWhenOdd', 'plusDelayed'])
+        ...mapMutations('moduleCounter', { plusN: 'plusValue', minusN: 'minusValue' }),
+        ...mapActions('moduleCounter', ['plusWhenOdd', 'plusDelayed'])
     },
     computed: {
-        ...mapState(['sum', 'school', 'subject', 'persons']),
-        ...mapGetters({ timesTen: 'timesTen' })
+        ...mapState('moduleCounter', ['sum', 'school', 'subject']),
+        ...mapState('modulePerson', ['persons']),
+        ...mapGetters('moduleCounter', { timesTen: 'timesTen' })
+    },
+    mounted() {
+        console.log(this.$store)
     }
 }
 </script>
