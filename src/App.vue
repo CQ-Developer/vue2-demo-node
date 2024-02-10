@@ -2,11 +2,14 @@
   <div>
     <BannerDemo></BannerDemo>
     <!--
-      <router-link>标签用于设置路由
-      <router-link>标签会被渲染成<a>标签
+      replace
+      完整写法为 :replace="true"
+      开启replace模式后不会留下浏览器记录
+      也就是说新的路径会直接替换掉原来栈顶的元素，而不是压栈
+      默认使用的是压栈
     -->
-    <router-link to="/about">About</router-link>
-    <router-link to="/home">Home</router-link>
+    <router-link replace to="/about">About</router-link>
+    <router-link replace to="/home">Home</router-link>
     <!--
       <router-view>标签用于展示路由路由规则皮质的组件
     -->
