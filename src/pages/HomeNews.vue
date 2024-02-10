@@ -51,6 +51,9 @@ export default {
                 path: '/about'
             })
         }
+    },
+    beforeDestroy() {
+        console.log('HomeNews组件即将被销毁')
     }
 }
 </script>
