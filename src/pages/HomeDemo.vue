@@ -11,6 +11,9 @@
             include
             默认缓存所有路由组件
             通过该属性指定需要被缓存的路由组件的组件名称
+
+            可以通过数组缓存多个路由组件
+            :include="['a', 'b', 'c']"
         -->
         <keep-alive include="HomeMessage">
             <router-view></router-view>
