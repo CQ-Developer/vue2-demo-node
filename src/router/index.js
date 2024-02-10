@@ -16,6 +16,8 @@ export default new VueRouter({
             component: HomeDemo,
             children: [
                 {
+                    // 为路径命名关羽
+                    name: 'guanyu',
                     path: 'message',
                     component: HomeMessage,
                     children: [
