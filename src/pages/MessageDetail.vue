@@ -1,8 +1,8 @@
 <template>
     <div>
         <!-- 接受query参数 -->
-        <p>消息编号: {{ $route.query.id }}</p>
-        <p>消息详情: {{ $route.query.title }}</p>
+        <p>消息编号: {{ $route.params.id }}</p>
+        <p>消息详情: {{ $route.params.title }}</p>
     </div>
 </template>
 

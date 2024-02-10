@@ -16,13 +16,14 @@ export default new VueRouter({
             component: HomeDemo,
             children: [
                 {
-                    // 为路径命名关羽
                     name: 'guanyu',
                     path: 'message',
                     component: HomeMessage,
                     children: [
                         {
-                            path: 'detail',
+                            name: 'detail',
+                            // 使用占位符表示路径
+                            path: 'detail/:id/:title',
                             component: MessageDetail
                         }
                     ]
