@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- 通过params参数传递数据 -->
-        <router-link v-for="m in message" :key="m.id" :to="`/home/message/detail/${m.id}/${m.title}`">
+        <router-link v-for="m in message" :key="m.id" :to="{ name: 'detail', params: { id: m.id, title: m.title } }">
             {{ m.title }}
         </router-link>
         <router-view></router-view>
