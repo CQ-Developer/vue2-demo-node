@@ -26,6 +26,22 @@ export default {
     },
     beforeDestroy() {
         console.log('HomeMessage组件即将被销毁了')
+    },
+    /**
+     * 新的生命周期钩子
+     * 在路由组件被激活时调用
+     * 适合用于设置定时任务之类
+     */
+    activated() {
+        this.timer = setInterval(() => console.log('HomeMessage组件被激活了'), 300);
+    },
+    /**
+     * 新的生命周期钩子
+     * 在路由组件不被激活的情况下调用
+     * 适合用于取消定时任务之类
+     */
+    deactivated() {
+        clearInterval(this.timer)
     }
 }
 </script>
