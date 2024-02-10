@@ -21,3 +21,9 @@ export default {
   components: { BannerDemo }
 }
 </script>
+
+<style>
+a {
+  margin-left: 5px;
+}
+</style>

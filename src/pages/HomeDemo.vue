@@ -1,19 +1,15 @@
 <template>
     <div>
         <p>我是Home组件</p>
+        <!-- 使用嵌套路由需要写完成的路径名 -->
+        <router-link to="/home/message">message</router-link>
+        <router-link to="/home/news">news</router-link>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HomeDemo',
-    mounted() {
-        console.log('Home组件挂在完毕')
-        console.log('路由组件的新增属性', this.$route)
-        console.log('路由组件的新增属性', this.$router)
-    },
-    beforeDestroy() {
-        console.log('Home组件即将销毁')
-    }
+    name: 'HomeDemo'
 }
 </script>
