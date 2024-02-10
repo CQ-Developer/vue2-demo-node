@@ -22,9 +22,22 @@ export default new VueRouter({
                     children: [
                         {
                             name: 'detail',
-                            // 使用占位符表示路径
                             path: 'detail/:id/:title',
-                            component: MessageDetail
+                            component: MessageDetail,
+                            /**
+                             * props: {...}
+                             * 通过对象传递数据，这样只能写死
+                             * 
+                             * props: true
+                             * 通过布尔值传递params数据，这种方式只能传递params数据，不能传递query数据
+                             * 
+                             * props: function() {...}
+                             * 通过函数返回对象，函数的参数是$route对象
+                             * 可以传递params或者query，可以使用结构复制让代码更加精简
+                             */
+                            props({ params }) {
+                                return params
+                            }
                         }
                     ]
                 },
