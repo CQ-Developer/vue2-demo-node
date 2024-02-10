@@ -6,6 +6,12 @@
 
 <script>
 export default {
-    name: 'HomeDemo'
+    name: 'HomeDemo',
+    mounted() {
+        console.log('Home组件挂在完毕')
+    },
+    beforeDestroy() {
+        console.log('Home组件即将销毁')
+    }
 }
 </script>
