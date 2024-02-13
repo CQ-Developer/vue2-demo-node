@@ -11,7 +11,6 @@ const router = new VueRouter({
         {
             path: '/about',
             component: AboutDemo,
-            // 为路由设置元信息
             meta: {
                 isAuth: true,
                 title: '关于'
@@ -51,6 +50,14 @@ const router = new VueRouter({
                     meta: {
                         title: '新闻'
                     },
+                    // 独享路由守卫，对指定的路由进行特殊的权限校验
+                    beforeEnter(to, from, next) {
+                        if (localStorage.getItem('role') == 'user') {
+                            next()
+                        } else {
+                            alert('需要登陆')
+                        }
+                    },
                     children: [
                         {
                             name: 'newsDetail',
@@ -70,7 +77,6 @@ const router = new VueRouter({
     ]
 })
 
-// 使用全局前置路由守卫进行权限验证
 router.beforeEach((to, from, next) => {
     if (to.meta.isAuth) {
         if (localStorage.getItem('school') == 'a') {
@@ -83,7 +89,6 @@ router.beforeEach((to, from, next) => {
     }
 })
 
-// 全局后置路由守卫，一般用来修改网站的title
 router.afterEach((to) => {
     document.title = to.meta.title
 })
